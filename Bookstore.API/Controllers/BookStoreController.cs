@@ -71,7 +71,46 @@ namespace Bookstore.API.Controllers
             return Ok(response);
         }
 
-        
+        [HttpGet]
+        public async void GetOrderDetails()
+        {
+
+        }
+
+        [HttpGet]
+        public async void GetTotalOrderAmount()
+        {
+
+        }
+
+        [HttpPost]
+        public async void AddToOrder()
+        {
+
+        }
+
+        [HttpPost]
+        public void CreateOrder()
+        {
+
+        }
+
+        [HttpDelete]
+        public void RemoveFromOrder()
+        {
+
+        }
+        [HttpDelete]
+        public void RemoveOrder()
+        {
+
+        }
+
+        [HttpPut]
+        public void EditOrderItem()
+        {
+
+        }
 
     }
 }
