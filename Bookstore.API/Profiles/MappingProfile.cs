@@ -10,6 +10,7 @@ namespace Bookstore.API.Profiles
         {
             CreateMap<BookDto, Book>().ReverseMap();
             CreateMap<CreateUpdateBookDto, Book>().ReverseMap();
+            CreateMap<CreateOrderDto, Order>().ReverseMap();
         }
     }
 }

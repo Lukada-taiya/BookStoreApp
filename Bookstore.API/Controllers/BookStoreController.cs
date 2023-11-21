@@ -71,46 +71,52 @@ namespace Bookstore.API.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
-        public async void GetOrderDetails()
-        {
+        //[HttpGet]
+        //public async void GetOrderDetails()
+        //{
 
-        }
+        //}
 
-        [HttpGet]
-        public async void GetTotalOrderAmount()
-        {
+        //[HttpGet]
+        //public async void GetTotalOrderAmount()
+        //{
 
-        }
+        //}
+
+        //[HttpPost]
+        //public async void AddToOrder()
+        //{
+
+        //}
 
         [HttpPost]
-        public async void AddToOrder()
+        [Route("CreateOrder")]
+        public async Task<IActionResult> CreateOrder(CreateOrderDto OrderDto)
         {
+            var response = await _mediator.Send(new CreateOrderRequest()
+            {
+                orderDto = OrderDto
+            });
 
+            return Ok(response);
         }
 
-        [HttpPost]
-        public void CreateOrder()
-        {
+        //[HttpDelete]
+        //public void RemoveFromOrder()
+        //{
 
-        }
+        //}
+        //[HttpDelete]
+        //public void RemoveOrder()
+        //{
 
-        [HttpDelete]
-        public void RemoveFromOrder()
-        {
+        //}
 
-        }
-        [HttpDelete]
-        public void RemoveOrder()
-        {
+        //[HttpPut]
+        //public void EditOrderItem()
+        //{
 
-        }
-
-        [HttpPut]
-        public void EditOrderItem()
-        {
-
-        }
+        //}
 
     }
 }

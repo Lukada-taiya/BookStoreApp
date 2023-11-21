@@ -9,10 +9,6 @@ namespace Bookstore.Application.DTOs
 {
     public class CreateOrderDto 
     { 
-        public string Customer { get; set; }
-
-        public List<OrderItem> Books { get; set; }
-
-        public decimal TotalAmount { get; set; }
+        public string? Customer { get; set; }  
     }
 }

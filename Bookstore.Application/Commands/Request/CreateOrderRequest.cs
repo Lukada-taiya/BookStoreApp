@@ -10,5 +10,6 @@ namespace Bookstore.Application.Commands.Request
 {
     public class CreateOrderRequest : IRequest<ApiResponse>
     {
+        public CreateOrderDto orderDto { get; set; }
     }
 }
