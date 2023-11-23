@@ -51,7 +51,6 @@ namespace Bookstore.Infrastructure.Persistence
         public async Task<int> UpdateAsync(FormattableString query)
         {
             var result = _dbContext.Database.ExecuteSqlInterpolated(query);
-
             await _dbContext.SaveChangesAsync();
 
             return result;

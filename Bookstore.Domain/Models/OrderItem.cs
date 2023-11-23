@@ -8,9 +8,10 @@ namespace Bookstore.Domain.Models
 {
     public class OrderItem
     {
-        public int OrderItemIdpk { get; set; }
-        public int OrderIdfk { get; set; }
-        public Book Book { get; set; }
+        public int OrderItemIdpk { get; set; } 
+
+        public int BookIdfk { get; set; }
+        public virtual Book Book { get; set; }
 
         public int Quantity { get; set; }
     }

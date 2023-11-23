@@ -36,7 +36,7 @@ namespace Bookstore.Infrastructure.Data
             });
             modelBuilder.Entity<OrderItem>(entity =>
             {
-                entity.HasKey(e => e.OrderItemIdpk);
+                entity.HasKey(e => e.OrderItemIdpk);                
             });
              
             //Setting Database type for decimal columns
