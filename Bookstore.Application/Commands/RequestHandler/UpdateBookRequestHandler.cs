@@ -29,11 +29,13 @@ namespace Bookstore.Application.Commands.RequestHandler
 
             if (response > 0)
             {
+                sql = $"[dbo].[spcGetBookId] @Title = {book.Title}";
+                var BookId = await _repository.GetId(sql);
                 return new ApiResponse
                 {
                     isSuccess = true,
                     Message = "Book has been updated successfully",
-
+                    Body = BookId
                 };
             }
 

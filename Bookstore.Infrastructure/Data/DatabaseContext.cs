@@ -29,14 +29,18 @@ namespace Bookstore.Infrastructure.Data
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("BookIdpk");
             });
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("OrderIdpk");
+
             });
             modelBuilder.Entity<OrderItem>(entity =>
             {
-                entity.HasKey(e => e.Id);                
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("OrderItemIdpk");
             });
              
             //Setting Database type for decimal columns

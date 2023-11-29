@@ -52,8 +52,7 @@ namespace Bookstore.Infrastructure.Persistence
 
         public async Task<int> GetId(FormattableString query)
         {
-            var result = (await _dbContext.Database.SqlQuery<int>(query).ToListAsync()).FirstOrDefault();
-            //List<TEntity> result = await _dbContext.Set<TEntity>().FromSqlInterpolated(query).ToListAsync();
+            var result = (await _dbContext.Database.SqlQuery<int>(query).ToListAsync()).FirstOrDefault(); 
 
             return result;
         }   

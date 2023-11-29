@@ -29,13 +29,16 @@ namespace Bookstore.Application.Commands.RequestHandler
 
             var response = await _repository.Add(sql);
 
+            sql = $"[dbo].[spcGetBookId] @Title = {book.Title}";
+            var BookId = await _repository.GetId(sql);
+
             if (response > 0)
             {
                 return new ApiResponse
                 {
                     isSuccess = true,
                     Message = "Book has been added successfully",
-                    Body = response
+                    Body = BookId
                 };
             }
 
