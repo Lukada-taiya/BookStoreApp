@@ -28,15 +28,15 @@ namespace Bookstore.Infrastructure.Data
             modelBuilder.Entity<CreateUpdateBookDto>().HasNoKey(); 
             modelBuilder.Entity<Book>(entity =>
             {
-                entity.HasKey(e => e.BookIdpk);
+                entity.HasKey(e => e.Id);
             });
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.HasKey(e => e.OrderIdpk);
+                entity.HasKey(e => e.Id);
             });
             modelBuilder.Entity<OrderItem>(entity =>
             {
-                entity.HasKey(e => e.OrderItemIdpk);                
+                entity.HasKey(e => e.Id);                
             });
              
             //Setting Database type for decimal columns

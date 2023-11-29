@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bookstore.Domain.Models.Common;
 
 namespace Bookstore.Application
 {
-    public interface IGenericRepository<TEntity> where TEntity : class
+    public interface IGenericRepository<TEntity> where TEntity : BaseModel
     {
         Task<TEntity> GetAsync(FormattableString query);
 
@@ -17,5 +18,7 @@ namespace Bookstore.Application
         Task<int> UpdateAsync(FormattableString query);
 
         Task<int> Add(FormattableString query);
+
+        Task<int> GetId(FormattableString query);
     }
 }

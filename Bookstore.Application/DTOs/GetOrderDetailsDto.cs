@@ -9,7 +9,7 @@ namespace Bookstore.Application.DTOs
 {
     public class GetOrderDetailsDto
     {
-        public int OrderIdpk { get; set; }
+        public int Id { get; set; }
         public string Customer { get; set; }
 
         public List<OrderItem> Books { get; set; }

@@ -35,7 +35,7 @@ namespace Bookstore.Application.Commands.RequestHandler
                 {
                     isSuccess = true,
                     Message = "Book has been added successfully",
-
+                    Body = response
                 };
             }
 

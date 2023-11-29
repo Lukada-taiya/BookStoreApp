@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bookstore.Application;
+using Bookstore.Domain.Models.Common;
 using Bookstore.Infrastructure.Data;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bookstore.Infrastructure.Persistence
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseModel
     {
         private readonly DatabaseContext _dbContext;
         public GenericRepository(DatabaseContext dbContext)
@@ -18,8 +20,8 @@ namespace Bookstore.Infrastructure.Persistence
         }
         public async Task<int> Add(FormattableString query)
         {
-            var result = _dbContext.Database.ExecuteSqlInterpolated(query);
 
+            var result = _dbContext.Database.ExecuteSqlInterpolated(query);
             await _dbContext.SaveChangesAsync();
 
             return result;
@@ -47,6 +49,14 @@ namespace Bookstore.Infrastructure.Persistence
 
             return result.FirstOrDefault()!;
         }
+
+        public async Task<int> GetId(FormattableString query)
+        {
+            var result = (await _dbContext.Database.SqlQuery<int>(query).ToListAsync()).FirstOrDefault();
+            //List<TEntity> result = await _dbContext.Set<TEntity>().FromSqlInterpolated(query).ToListAsync();
+
+            return result;
+        }   
 
         public async Task<int> UpdateAsync(FormattableString query)
         {

@@ -21,12 +21,16 @@ namespace Bookstore.Application.Commands.RequestHandler
             Order Order = _mapper.Map<Order>(request.orderDto);
             FormattableString sql = $"[dbo].[spcCreateOrder] @Customer = {Order.Customer}";
             var response = await _genericRepository.Add(sql);
+
             if (response > 0)
             {
+                sql = $"[dbo].[spcGetOrderId] @Customer = {Order.Customer}";
+                var OrderId = await _genericRepository.GetId(sql);
                 return new ApiResponse
                 {
                     isSuccess = true,
                     Message = "Order has been created successfully",
+                    Body = OrderId
 
                 };
             }

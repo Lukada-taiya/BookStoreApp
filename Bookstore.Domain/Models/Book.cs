@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bookstore.Domain.Models.Common;
 
 namespace Bookstore.Domain.Models
 {
-    public class Book
-    {
-        public int BookIdpk { get; set; }
+    public class Book : BaseModel
+    { 
 
         public string Title { get; set; }
 
